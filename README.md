@@ -1,4 +1,4 @@
-AGDock
+AGDock: 
 Automated SMILES-Based Grid-Specific Docking Tool
 
 Developed by
