@@ -1,5 +1,9 @@
-Welcome to AGDock! 
-Developed by the SysBioP Lab at Tripura University. 
+AGDock
+Automated SMILES-Based Grid-Specific Docking Tool
+
+Developed by
+Department of Molecular Biology & Bioinformatics
+Tripura University
 
 ## Authors
 Abhijit Reang  
