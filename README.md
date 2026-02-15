@@ -1,5 +1,5 @@
 AGDock: 
-Automated SMILES-Based Grid-Specific Docking Tool
+Automated Grid-Specific Docking Tool
 
 Developed by
 Department of Molecular Biology & Bioinformatics
