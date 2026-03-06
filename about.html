@@ -4,14 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About — AGDock</title>
+    <title>About — GridDock</title>
     <meta name="description"
-        content="Learn about AGDock's architecture, ligand processing pipeline, and how it automates high-throughput molecular docking with AutoDock Vina.">
+        content="Learn about GridDock's architecture, ligand processing pipeline, and how it automates high-throughput molecular docking with AutoDock Vina.">
 
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
 
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -24,8 +30,8 @@
     <!-- Navbar -->
     <nav class="navbar" id="navbar">
         <a href="index.html" class="nav-brand">
-            <div class="brand-icon">A</div>
-            AGDock
+            <img src="logo.png" alt="GridDock Logo" class="brand-logo">
+            GridDock
         </a>
 
         <ul class="nav-links" id="nav-links">
@@ -50,8 +56,8 @@
 
     <!-- About Hero -->
     <section class="about-hero">
-        <h1>About AGDock</h1>
-        <p>AGDock is an automated graphical interface for high-throughput molecular docking and ligand preparation.
+        <h1>About GridDock</h1>
+        <p>GridDock is an automated graphical interface for high-throughput molecular docking and ligand preparation.
             Built with Python and Tkinter, it wraps the full docking pipeline — from SMILES input to binding affinity
             output — into a single click-and-run workflow.</p>
     </section>
@@ -61,7 +67,15 @@
         <div class="about-grid">
 
             <div class="about-card fade-in">
-                <h3>🖥️ Built With</h3>
+                <h3>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent)">
+                        <rect width="20" height="14" x="2" y="3" rx="2" />
+                        <line x1="8" x2="16" y1="21" y2="21" />
+                        <line x1="12" x2="12" y1="17" y2="21" />
+                    </svg>
+                    Built With
+                </h3>
                 <ul>
                     <li>Python 3 &amp; Tkinter GUI</li>
                     <li>RDKit for cheminformatics</li>
@@ -72,7 +86,14 @@
             </div>
 
             <div class="about-card fade-in">
-                <h3>📂 Input Requirements</h3>
+                <h3>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" style="color:#f59e0b">
+                        <path
+                            d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z" />
+                    </svg>
+                    Input Requirements
+                </h3>
                 <ul>
                     <li>SMILES file (.txt) with ligand strings</li>
                     <li>Receptor structure in .pdbqt format</li>
@@ -82,7 +103,15 @@
             </div>
 
             <div class="about-card fade-in">
-                <h3>📤 Outputs</h3>
+                <h3>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" style="color:#10b981">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                        <polyline points="17 8 12 3 7 8" />
+                        <line x1="12" x2="12" y1="3" y2="15" />
+                    </svg>
+                    Outputs
+                </h3>
                 <ul>
                     <li>Docked ligand PDBQT files</li>
                     <li>Docking_Summary.csv with affinities</li>
@@ -141,7 +170,7 @@
     <!-- CTA -->
     <section class="cta-section">
         <div class="cta-card fade-in">
-            <h2>Try AGDock today</h2>
+            <h2>Try GridDock today</h2>
             <p>Free for academic and non-commercial use. Download the Windows installer and start docking in minutes.
             </p>
             <button class="btn-cta" data-open-modal>
@@ -151,14 +180,14 @@
                     <polyline points="7 10 12 15 17 10" />
                     <line x1="12" y1="15" x2="12" y2="3" />
                 </svg>
-                Download AGDock
+                Download GridDock
             </button>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-left">© 2026 AGDock. All rights reserved.</div>
+        <div class="footer-left">© 2026 GridDock. All rights reserved.</div>
         <ul class="footer-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
@@ -170,7 +199,7 @@
     <div class="modal-overlay" id="download-modal">
         <div class="modal">
             <button class="modal-close" aria-label="Close">✕</button>
-            <h2>Download AGDock</h2>
+            <h2>Download GridDock</h2>
             <p class="modal-subtext">Fill in your details to download the Windows installer.</p>
 
             <form id="download-form" novalidate>
@@ -199,7 +228,7 @@
                         <polyline points="7 10 12 15 17 10" />
                         <line x1="12" y1="15" x2="12" y2="3" />
                     </svg>
-                    Download AGDock
+                    Download GridDock
                 </button>
             </form>
 
