@@ -171,18 +171,38 @@ function initModal() {
     submissions.push(data);
     localStorage.setItem('GridDock_downloads', JSON.stringify(submissions));
 
-    // Show success then redirect
+    // Google Forms Configuration
+    const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfSBtByyepd2713LTHS_9g2IWBCVpRskgjWjLaDQTpKyMZYTQ/formResponse';
+    const formData = new FormData();
+    formData.append('entry.706517530', data.name);
+    formData.append('entry.1998419738', data.email);
+    formData.append('entry.1248674403', data.institute);
+
+    // Show success state
     const submitBtn = form.querySelector('.form-submit');
     submitBtn.innerHTML = '✓ Redirecting to download...';
     submitBtn.disabled = true;
 
-    setTimeout(() => {
+    // Submit silently catching the CORS error
+    fetch(GOOGLE_FORM_URL, {
+      method: 'POST',
+      body: formData,
+      mode: 'no-cors'
+    }).then(() => {
+      setTimeout(() => {
+        window.open(GITHUB_RELEASE_URL, '_blank');
+        closeModal();
+        form.reset();
+        submitBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download GridDock';
+        submitBtn.disabled = false;
+      }, 800);
+    }).catch(error => {
+      console.error('Error submitting form:', error);
+      // Still redirect even if tracking fails fallback
       window.open(GITHUB_RELEASE_URL, '_blank');
       closeModal();
-      form.reset();
-      submitBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download GridDock';
       submitBtn.disabled = false;
-    }, 1200);
+    });
   });
 }
 
