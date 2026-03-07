@@ -1,4 +1,4 @@
-AGDock: 
+GridDock: 
 Automated Grid-Specific Docking Tool
 
 Developed by
@@ -6,7 +6,9 @@ Department of Molecular Biology & Bioinformatics
 Tripura University
 
 ## Authors
-Abhijit Reang  
+AR
+AS
+SB
 Arabinda Ghosh (Corresponding Author)
 Email: arabindaghosh@tripurauniv.ac.in 
 
@@ -15,10 +17,10 @@ To effectively use this tool, ensure these files are ready:
 2. Receptor File: Target protein structure in .pdbqt format. 
 3. AutoDock Vina: The vina executable. 
 4. Active Site Info: Specific residue numbers for binding. 
-How to Use AGDock 
+How to Use GridDock 
 1. Input & Settings 
 1. SMILES File: Browse to select your ligand file. 
-2. Output Folder: Browse to select or create the folder for AGDock results. 
+2. Output Folder: Browse to select or create the folder for GridDock results. 
 3. Minimization: Select the force field (e.g., MMFF94) from the dropdown for energy 
 minimization, which prepares the molecules for docking. 
 2. Docking Setup 
