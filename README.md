@@ -1,5 +1,4 @@
-GridDock: 
-Automated Grid-Specific Docking Tool
+GridDock: An Automated GUI for High-Throughput Virtual Screening
 
 Developed by
 Department of Molecular Biology & Bioinformatics
