@@ -17,13 +17,14 @@
   <!-- Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
 
   <!-- Favicon -->
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
-  <link rel="manifest" href="assets/site.webmanifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
 
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -36,23 +37,33 @@
   <!-- Navbar -->
   <nav class="navbar" id="navbar">
     <a href="index.html" class="nav-brand">
-      <img src="assets/logo.png" alt="GridDock Logo" class="brand-logo">
+      <img src="logo.png" alt="GridDock Logo" class="brand-logo">
     </a>
 
     <ul class="nav-links" id="nav-links">
       <li><a href="index.html" class="active">Home</a></li>
       <li><a href="about.html">About</a></li>
+      <li><a href="#citation">Cite</a></li>
     </ul>
 
-    <button class="nav-download-btn" data-open-modal id="nav-download-btn">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-        stroke-linejoin="round">
-        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-        <polyline points="7 10 12 15 17 10" />
-        <line x1="12" y1="15" x2="12" y2="3" />
-      </svg>
-      Download
-    </button>
+    <div class="nav-right">
+      <a href="https://github.com/abhijitreang/GridDock" target="_blank" rel="noopener" class="nav-github-btn"
+        aria-label="GitHub">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+        </svg>
+      </a>
+      <button class="nav-download-btn" data-open-modal id="nav-download-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+          <polyline points="7 10 12 15 17 10" />
+          <line x1="12" y1="15" x2="12" y2="3" />
+        </svg>
+        Download
+      </button>
+    </div>
 
     <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -61,28 +72,106 @@
 
   <!-- Hero -->
   <section class="hero" id="hero">
+    <!-- Molecular structure decorations -->
+    <div class="hero-decoration hero-decoration-left" aria-hidden="true">
+      <svg width="200" height="320" viewBox="0 0 200 320" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="1.5">
+        <!-- Tree/graph structure -->
+        <circle cx="100" cy="20" r="6" fill="rgba(0,0,0,0.06)" stroke="rgba(0,0,0,0.12)" />
+        <line x1="100" y1="26" x2="100" y2="70" />
+        <circle cx="100" cy="76" r="6" fill="rgba(0,0,0,0.06)" stroke="rgba(0,0,0,0.12)" />
+        <line x1="96" y1="81" x2="60" y2="130" />
+        <line x1="104" y1="81" x2="140" y2="130" />
+        <circle cx="56" cy="136" r="6" fill="rgba(0,0,0,0.06)" stroke="rgba(0,0,0,0.12)" />
+        <circle cx="144" cy="136" r="6" fill="rgba(0,0,0,0.06)" stroke="rgba(0,0,0,0.12)" />
+        <line x1="52" y1="141" x2="30" y2="190" />
+        <line x1="60" y1="141" x2="80" y2="190" />
+        <line x1="140" y1="141" x2="120" y2="190" />
+        <line x1="148" y1="141" x2="168" y2="190" />
+        <circle cx="26" cy="196" r="5" fill="rgba(0,0,0,0.04)" stroke="rgba(0,0,0,0.10)" />
+        <circle cx="80" cy="196" r="5" fill="rgba(0,0,0,0.04)" stroke="rgba(0,0,0,0.10)" />
+        <circle cx="120" cy="196" r="5" fill="rgba(0,0,0,0.04)" stroke="rgba(0,0,0,0.10)" />
+        <circle cx="168" cy="196" r="5" fill="rgba(0,0,0,0.04)" stroke="rgba(0,0,0,0.10)" />
+        <line x1="26" y1="201" x2="26" y2="240" />
+        <line x1="80" y1="201" x2="80" y2="240" />
+        <circle cx="26" cy="246" r="4" fill="rgba(0,0,0,0.03)" stroke="rgba(0,0,0,0.08)" />
+        <circle cx="80" cy="246" r="4" fill="rgba(0,0,0,0.03)" stroke="rgba(0,0,0,0.08)" />
+        <!-- Connecting label lines -->
+        <line x1="30" y1="246" x2="76" y2="246" stroke-dasharray="3 3" />
+      </svg>
+    </div>
+
+    <div class="hero-decoration hero-decoration-right" aria-hidden="true">
+      <svg width="220" height="280" viewBox="0 0 220 280" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="1.5">
+        <!-- Molecular network -->
+        <circle cx="110" cy="60" r="8" fill="rgba(0,0,0,0.05)" stroke="rgba(0,0,0,0.12)" />
+        <line x1="104" y1="66" x2="60" y2="110" />
+        <line x1="116" y1="66" x2="160" y2="110" />
+        <line x1="110" y1="68" x2="110" y2="130" />
+        <circle cx="56" cy="116" r="7" fill="rgba(0,0,0,0.04)" stroke="rgba(0,0,0,0.10)" />
+        <circle cx="164" cy="116" r="7" fill="rgba(0,0,0,0.04)" stroke="rgba(0,0,0,0.10)" />
+        <circle cx="110" cy="136" r="7" fill="rgba(0,0,0,0.04)" stroke="rgba(0,0,0,0.10)" />
+        <line x1="56" y1="123" x2="56" y2="170" />
+        <line x1="110" y1="143" x2="110" y2="190" />
+        <line x1="164" y1="123" x2="164" y2="170" />
+        <line x1="62" y1="120" x2="104" y2="136" />
+        <line x1="116" y1="136" x2="158" y2="120" />
+        <circle cx="56" cy="176" r="6" fill="rgba(0,0,0,0.03)" stroke="rgba(0,0,0,0.08)" />
+        <circle cx="110" cy="196" r="6" fill="rgba(0,0,0,0.03)" stroke="rgba(0,0,0,0.08)" />
+        <circle cx="164" cy="176" r="6" fill="rgba(0,0,0,0.03)" stroke="rgba(0,0,0,0.08)" />
+        <line x1="62" y1="178" x2="104" y2="194" />
+        <line x1="116" y1="194" x2="158" y2="178" />
+        <!-- Dashed bonds -->
+        <line x1="56" y1="182" x2="80" y2="230" stroke-dasharray="4 3" />
+        <line x1="164" y1="182" x2="140" y2="230" stroke-dasharray="4 3" />
+        <circle cx="80" cy="236" r="5" fill="rgba(0,0,0,0.02)" stroke="rgba(0,0,0,0.06)" />
+        <circle cx="140" cy="236" r="5" fill="rgba(0,0,0,0.02)" stroke="rgba(0,0,0,0.06)" />
+        <line x1="85" y1="236" x2="135" y2="236" stroke-dasharray="3 3" />
+      </svg>
+    </div>
+
     <div class="hero-badge">
       <span class="dot"></span>
       Open-source &amp; free for researchers
     </div>
 
-    <h1>Automated high-throughput molecular docking</h1>
+    <h1>Automated <em>high-throughput</em> molecular docking</h1>
 
-    <p>GridDock streamlines ligand preparation, docking setup, and batch processing — all through a clean graphical
-      interface powered by AutoDock Vina.</p>
+    <p class="hero-subtitle">GridDock streamlines ligand preparation, grid configuration, docking execution, and batch
+      result analysis — all through an intuitive GUI powered by AutoDock Vina.</p>
+
+    <div class="hero-tech-stack">
+      <span class="tech-tag"><span class="tag-dot" style="background:#059669"></span>AutoDock Vina</span>
+      <span class="tech-tag"><span class="tag-dot" style="background:#2563eb"></span>Python 3.x</span>
+      <span class="tech-tag"><span class="tag-dot" style="background:#7c3aed"></span>Tkinter GUI</span>
+      <span class="tech-tag"><span class="tag-dot" style="background:#ea580c"></span>Open Babel</span>
+      <span class="tech-tag"><span class="tag-dot" style="background:#0891b2"></span>VS Pipeline</span>
+    </div>
+
+    <div class="hero-pub-ref">
+      <span class="pub-ref-label">Preprint</span>
+      <span class="pub-ref-sep">&middot;</span>
+      <span class="pub-ref-title">GridDock: An Automated GUI-Based Tool for High-Throughput Virtual Screening</span>
+      <span class="pub-ref-sep">&middot;</span>
+      <a href="#citation" class="pub-ref-link">View Publication
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="5" y1="12" x2="19" y2="12" />
+          <polyline points="12 5 19 12 12 19" />
+        </svg>
+      </a>
+    </div>
 
     <div class="hero-actions">
       <button class="btn-primary" data-open-modal id="hero-download-btn">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
           stroke-linejoin="round">
-          <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-          <line x1="3" y1="9" x2="21" y2="9" />
-          <line x1="9" y1="21" x2="9" y2="9" />
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+          <polyline points="7 10 12 15 17 10" />
+          <line x1="12" y1="15" x2="12" y2="3" />
         </svg>
         Download for Windows
       </button>
       <a href="about.html" class="btn-secondary">
-        Learn more
+        Documentation
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
           stroke-linecap="round" stroke-linejoin="round">
           <line x1="5" y1="12" x2="19" y2="12" />
@@ -214,6 +303,53 @@
     </div>
   </section>
 
+  <!-- Citation -->
+  <section class="citation-section" id="citation">
+    <div class="citation-container fade-in">
+      <div class="citation-header">
+        <div class="citation-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z" />
+            <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" />
+          </svg>
+        </div>
+        <p class="section-label">Citation</p>
+        <h2 class="section-title">Cite GridDock in your research</h2>
+        <p class="citation-desc">If you use GridDock in your research, please cite the following publication:</p>
+      </div>
+
+      <div class="citation-box">
+        <div class="citation-format-tabs">
+          <button class="citation-tab active" data-format="apa">APA</button>
+          <button class="citation-tab" data-format="bibtex">BibTeX</button>
+        </div>
+        <div class="citation-content" id="citation-apa">
+          <p>Reang, A., Haldar, A. (2026). GridDock: An Automated GUI-Based Tool for High-Throughput Virtual Screening.
+            <em>[Journal Name]</em>. DOI: [Pending]</p>
+        </div>
+        <div class="citation-content" id="citation-bibtex" style="display:none;">
+          <pre>@article{reang2026griddock,
+  title={GridDock: An Automated GUI-Based Tool
+         for High-Throughput Virtual Screening},
+  author={Reang, Abhijit and Haldar, Arghya},
+  journal={[Journal Name]},
+  year={2026},
+  doi={[Pending]}
+}</pre>
+        </div>
+        <button class="citation-copy-btn" id="copy-citation">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+          </svg>
+          Copy citation
+        </button>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="cta-section">
     <div class="cta-card fade-in">
@@ -233,18 +369,82 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="footer-left">© 2026 GridDock. All rights reserved.</div>
-    <ul class="footer-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="https://github.com/abhijitreang/GridDock" target="_blank" rel="noopener">GitHub</a></li>
-    </ul>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="logo.png" alt="GridDock" class="footer-logo">
+          <p class="footer-tagline">An automated GUI-based tool for high-throughput virtual screening, powered by
+            AutoDock Vina.</p>
+          <div class="footer-social">
+            <a href="https://github.com/abhijitreang/GridDock" target="_blank" rel="noopener" aria-label="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#how-it-works">Workflow</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="https://github.com/abhijitreang/GridDock" target="_blank" rel="noopener">GitHub Repository</a>
+            </li>
+            <li><a href="#citation">Cite This Work</a></li>
+            <li><a href="https://github.com/abhijitreang/GridDock/releases" target="_blank"
+                rel="noopener">Releases</a></li>
+            <li><a href="https://github.com/abhijitreang/GridDock/issues" target="_blank" rel="noopener">Report a
+                Bug</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Publication</h4>
+          <ul>
+            <li><a href="#citation">APA Citation</a></li>
+            <li><a href="#citation">BibTeX Citation</a></li>
+            <li><a href="about.html">Documentation</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div class="footer-pub-banner">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+        </svg>
+        <span>GridDock: An Automated GUI-Based Tool for High-Throughput Virtual Screening</span>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 GridDock. All rights reserved.</p>
+        <p class="footer-license">Released under the
+          <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">MIT License</a>
+        </p>
+      </div>
+    </div>
   </footer>
 
   <!-- Download Modal -->
   <div class="modal-overlay" id="download-modal">
     <div class="modal">
-      <button class="modal-close" aria-label="Close">✕</button>
+      <button class="modal-close" aria-label="Close">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
       <h2>Download GridDock</h2>
       <p class="modal-subtext">Fill in your details to download the Windows installer.</p>
 
