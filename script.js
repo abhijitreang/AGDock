@@ -1,15 +1,16 @@
-// Configuration 
+// Configuration
 const GITHUB_RELEASE_URL = 'https://github.com/abhijitreang/GridDock/releases';
 
-// DOM Ready 
+// DOM Ready
 document.addEventListener('DOMContentLoaded', () => {
   initParticles();
   initNavigation();
   initModal();
   initScrollAnimations();
+  initCitation();
 });
 
-// Confetti Particle System 
+// Confetti Particle System
 function initParticles() {
   const canvas = document.getElementById('particle-canvas');
   if (!canvas) return;
@@ -90,7 +91,7 @@ function initParticles() {
   });
 }
 
-// Navigation 
+// Navigation
 function initNavigation() {
   const hamburger = document.getElementById('nav-hamburger');
   const navLinks = document.getElementById('nav-links');
@@ -171,38 +172,18 @@ function initModal() {
     submissions.push(data);
     localStorage.setItem('GridDock_downloads', JSON.stringify(submissions));
 
-    // Google Forms Configuration
-    const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfSBtByyepd2713LTHS_9g2IWBCVpRskgjWjLaDQTpKyMZYTQ/formResponse';
-    const formData = new FormData();
-    formData.append('entry.706517530', data.name);
-    formData.append('entry.1998419738', data.email);
-    formData.append('entry.1248674403', data.institute);
-
-    // Show success state
+    // Show success then redirect
     const submitBtn = form.querySelector('.form-submit');
-    submitBtn.innerHTML = '✓ Redirecting to download...';
+    submitBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Redirecting to download...';
     submitBtn.disabled = true;
 
-    // Submit silently catching the CORS error
-    fetch(GOOGLE_FORM_URL, {
-      method: 'POST',
-      body: formData,
-      mode: 'no-cors'
-    }).then(() => {
-      setTimeout(() => {
-        window.open(GITHUB_RELEASE_URL, '_blank');
-        closeModal();
-        form.reset();
-        submitBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download GridDock';
-        submitBtn.disabled = false;
-      }, 800);
-    }).catch(error => {
-      console.error('Error submitting form:', error);
-      // Still redirect even if tracking fails fallback
+    setTimeout(() => {
       window.open(GITHUB_RELEASE_URL, '_blank');
       closeModal();
+      form.reset();
+      submitBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download GridDock';
       submitBtn.disabled = false;
-    });
+    }, 1200);
   });
 }
 
@@ -246,7 +227,7 @@ function isValidEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
-// Scroll Animations 
+// Scroll Animations
 function initScrollAnimations() {
   const observer = new IntersectionObserver(
     (entries) => {
@@ -262,7 +243,57 @@ function initScrollAnimations() {
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 }
 
-// Live input validation (clear errors on type) 
+// Citation Tabs & Copy
+function initCitation() {
+  const tabs = document.querySelectorAll('.citation-tab');
+  const apaContent = document.getElementById('citation-apa');
+  const bibtexContent = document.getElementById('citation-bibtex');
+  const copyBtn = document.getElementById('copy-citation');
+
+  if (!tabs.length || !apaContent || !bibtexContent) return;
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      const format = tab.dataset.format;
+      if (format === 'apa') {
+        apaContent.style.display = 'block';
+        bibtexContent.style.display = 'none';
+      } else {
+        apaContent.style.display = 'none';
+        bibtexContent.style.display = 'block';
+      }
+    });
+  });
+
+  if (copyBtn) {
+    copyBtn.addEventListener('click', () => {
+      const activeTab = document.querySelector('.citation-tab.active');
+      const format = activeTab ? activeTab.dataset.format : 'apa';
+      let text;
+
+      if (format === 'apa') {
+        text = apaContent.textContent.trim();
+      } else {
+        text = bibtexContent.querySelector('pre').textContent.trim();
+      }
+
+      navigator.clipboard.writeText(text).then(() => {
+        copyBtn.classList.add('copied');
+        const originalHTML = copyBtn.innerHTML;
+        copyBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Copied!';
+        setTimeout(() => {
+          copyBtn.innerHTML = originalHTML;
+          copyBtn.classList.remove('copied');
+        }, 2000);
+      });
+    });
+  }
+}
+
+// Live input validation (clear errors on type)
 document.addEventListener('input', (e) => {
   if (e.target.matches('.form-group input')) {
     if (e.target.value.trim()) {
