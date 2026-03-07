@@ -1,4 +1,4 @@
-GridDock: An Automated GUI for High-Throughput Virtual Screening
+GridDock: An Automated GUI-Based Tool for High-Throughput Virtual Screening
 
 Developed by
 Department of Molecular Biology & Bioinformatics
